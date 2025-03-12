@@ -1,19 +1,9 @@
-import { Dialect } from "sequelize";
+import { SequelizeConfig } from "../services/interfaces";
 
 const result = require("dotenv").config();
 
 if (result.error) {
   throw result.error;
-}
-
-interface SequelizeConfig {
-  [key: string]: {
-    username: string;
-    password: string;
-    database: string;
-    host: string;
-    dialect: Dialect;
-  };
 }
 
 if (

@@ -6,10 +6,7 @@ import {
 import { messages } from "../services/messages";
 import { Request, Response, NextFunction } from "express";
 import Models from "../models/index";
-
-interface UserRequest extends Request {
-  user: Object;
-}
+import { UserRequest } from "../services/interfaces";
 
 module.exports = {
   async verifyJWT(req: Request, res: Response, next: NextFunction) {

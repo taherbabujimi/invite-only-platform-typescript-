@@ -1,15 +1,5 @@
 import { Response } from "express";
-
-interface ResponseMeta {
-  code: number;
-  message: string;
-  [key: string]: any;
-}
-
-interface ResponseData<T> {
-  data: T;
-  meta: ResponseMeta;
-}
+import { ResponseData } from "./interfaces";
 
 export const successResponseData = <T>(
   res: Response,

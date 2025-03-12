@@ -1,12 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-
-interface user {
-  id: number;
-  username: string;
-  email: string;
-  password: string;
-}
+import { user } from "./interfaces";
 
 export const generateHash = async (password: string) => {
   return await bcrypt.hashSync(password, bcrypt.genSaltSync(10));

@@ -26,10 +26,7 @@ import { forgotPasswordHTML } from "../../view/forgotPasswordHtml";
 import bcrypt from "bcrypt";
 import { emailTransport } from "../services/mailTransport";
 import { Request, Response } from "express";
-
-interface user extends Request {
-  user: { id: number; username: string; email: string; password: string };
-}
+import { UserController } from "../services/interfaces";
 
 module.exports.userLogin = async (req: Request, res: Response) => {
   try {
@@ -153,7 +150,7 @@ module.exports.addUserByLink = async (req: Request, res: Response) => {
   }
 };
 
-module.exports.sendInvite = async (req: user, res: Response) => {
+module.exports.sendInvite = async (req: UserController, res: Response) => {
   try {
     const validationResponse = sendInviteSchema(req.body, res);
     if (validationResponse !== false) return;
@@ -204,7 +201,7 @@ module.exports.sendInvite = async (req: user, res: Response) => {
   }
 };
 
-module.exports.changePassword = async (req: user, res: Response) => {
+module.exports.changePassword = async (req: UserController, res: Response) => {
   try {
     const validationResponse = changePasswordSchema(req.body, res);
     if (validationResponse !== false) return;

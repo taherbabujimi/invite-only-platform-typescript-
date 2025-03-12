@@ -1,20 +1,6 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
 import bcrypt from "bcrypt";
-
-// Define interfaces for the User attributes
-interface UserAttributes {
-  id?: number;
-  username: string;
-  email: string;
-  password: string;
-  forgotPasswordTime?: Date;
-  passwordChangeTime?: Date;
-}
-
-// Interface for the instance methods
-interface UserInstance
-  extends Model<UserAttributes, UserAttributes>,
-    UserAttributes {}
+import { UserAttributes, UserInstance } from "../services/interfaces";
 
 export default (sequelize: Sequelize, dataTypes: typeof DataTypes) => {
   class User
