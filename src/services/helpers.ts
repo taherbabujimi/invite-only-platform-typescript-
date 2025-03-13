@@ -15,7 +15,7 @@ export const generateAccessToken = async (user: user) => {
     return new Error("ACCESS_TOKEN_SECRET environment variable is not set");
   }
 
-  return await jwt.sign(
+  return jwt.sign(
     {
       id: user.id,
       username: user.username,
